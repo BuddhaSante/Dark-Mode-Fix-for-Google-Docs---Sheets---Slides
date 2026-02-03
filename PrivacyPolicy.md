@@ -1,5 +1,5 @@
-Privacy Policy
 Dark Mode Fix for Google Docs / Sheets / Slides — Privacy Policy
+
 Effective date: 2026-02-03
 
 This extension does not collect, sell, or transfer personal data.
