@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Dark Mode Fix</title>
+</head>
+<body>
+  <header class="hdr">
+    <div class="brand">
+      <div class="logoWrap" aria-hidden="true">
+        <img class="logo" src="icon48.png" alt="" />
+        <div class="dot" id="statusDot"></div>
+      </div>
+      <div>
+        <div class="title">Dark Mode Fix</div>
+        <div class="sub">Google Docs • Sheets • Slides</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="card">
+    <!-- Master exclusion -->
+    <div class="row">
+      <div class="rowText">
+        <div class="rowTitle">Exclude editor content</div>
+        <div class="rowSub">Works with Dark Reader <b>Dynamic</b> mode.</div>
+      </div>
+      <label class="switch" title="Toggle content exclusion">
+        <input id="toggleExclude" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Per-app exclusion -->
+    <div class="row apps">
+      <div class="rowText">
+        <div class="rowTitle">Apps</div>
+        <div class="rowSub">Apply exclusion per editor.</div>
+      </div>
+      <div class="appToggles" role="group" aria-label="Apps">
+        <button class="appBtn" id="appDocs" type="button" title="Google Docs" aria-label="Google Docs">
+          <img src="docs_icon.png" alt="" aria-hidden="true" />
+        </button>
+        <button class="appBtn" id="appSheets" type="button" title="Google Sheets" aria-label="Google Sheets">
+          <img src="sheets_icon.png" alt="" aria-hidden="true" />
+        </button>
+        <button class="appBtn" id="appSlides" type="button" title="Google Slides" aria-label="Google Slides">
+          <img src="slides_icon.png" alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- In-page toggle master -->
+    <div class="row">
+      <div class="rowText">
+        <div class="rowTitle">In-page toggle</div>
+        <div class="rowSub">Shows a small toggle button in the editor.</div>
+      </div>
+      <label class="switch" title="Toggle in-page control">
+        <input id="toggleOverlay" type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Per-app in-page button -->
+    <div class="row apps">
+      <div class="rowText">
+        <div class="rowTitle">Apps</div>
+        <div class="rowSub">Show in-page button per editor.</div>
+      </div>
+      <div class="appToggles" role="group" aria-label="In-page apps">
+        <button class="appBtn small" id="ovDocs" type="button" title="Docs in-page" aria-label="Docs in-page">
+          <img src="docs_icon.png" alt="" aria-hidden="true" />
+        </button>
+        <button class="appBtn small" id="ovSheets" type="button" title="Sheets in-page" aria-label="Sheets in-page">
+          <img src="sheets_icon.png" alt="" aria-hidden="true" />
+        </button>
+        <button class="appBtn small" id="ovSlides" type="button" title="Slides in-page" aria-label="Slides in-page">
+          <img src="slides_icon.png" alt="" aria-hidden="true" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Position preset -->
+    <div class="row">
+      <div class="rowText">
+        <div class="rowTitle">Toggle position</div>
+        <div class="rowSub">Choose a corner or use drag.</div>
+      </div>
+      <!--
+        NOTE: Native <select>/<option> menus are rendered by the browser/OS and
+        cannot be reliably themed (the menu stayed light gray).
+        This custom dropdown keeps the entire control monochrome.
+      -->
+      <div class="dropdown" id="posDropdown">
+        <button class="ddBtn" id="posBtn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle position">
+          <span id="posLabel">Bottom right</span>
+          <span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="ddMenu" id="posMenu" role="listbox" tabindex="-1" hidden>
+          <button class="ddOpt" type="button" role="option" data-value="br">Bottom right</button>
+          <button class="ddOpt" type="button" role="option" data-value="bl">Bottom left</button>
+          <button class="ddOpt" type="button" role="option" data-value="tr">Top right</button>
+          <button class="ddOpt" type="button" role="option" data-value="tl">Top left</button>
+          <div class="ddSep" role="separator" aria-hidden="true"></div>
+          <button class="ddOpt" type="button" role="option" data-value="custom">Custom (drag)</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="ft">
+    <span class="pill" id="modePill">Dynamic: unknown</span>
+
+    <a class="donateBtn" href="https://www.paypal.com/donate/?business=G2KBGLL9K45XU&no_recurring=0&item_name=Solo+indie+dev%2C+anything+helps.%0AThank+you+in+advance+for+helping+me+maintain+and+build+more+%0A-+BuddhaSante&currency_code=USD" target="_blank" rel="noopener noreferrer" title="Donate with PayPal" aria-label="Donate with PayPal">
+      <img class="donateIcon" src="buddhasante_square_256.png" alt="" aria-hidden="true" />
+      <span class="donateText">Donate</span>
+    </a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

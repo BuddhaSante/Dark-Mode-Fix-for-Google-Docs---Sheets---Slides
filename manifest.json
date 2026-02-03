@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Mode Fix for Google Docs, Sheets & Slides",
+  "version": "1.0",
+  "description": "Fixes Dark Reader Dynamic in Google Docs/Sheets/Slides by excluding editor content. Optional in-page toggle.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://docs.google.com/document/*",
+    "https://docs.google.com/spreadsheets/*",
+    "https://docs.google.com/presentation/*"
+  ],
+  "action": {
+    "default_title": "Dark Mode Fix",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/document/*",
+        "https://docs.google.com/spreadsheets/*",
+        "https://docs.google.com/presentation/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "docs_icon.png",
+        "sheets_icon.png",
+        "slides_icon.png"
+      ],
+      "matches": [
+        "https://docs.google.com/*"
+      ]
+    }
+  ]
+}
